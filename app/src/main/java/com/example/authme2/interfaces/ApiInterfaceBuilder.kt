@@ -8,6 +8,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
 private const val BASE_URL = "https://www.superheroapi.com/api.php/5165150593500818/"
+private const val AUTH_ME_BASE_URL = "http://localhost:8080/"
 
 class ApiInterfaceBuilder {
     companion object {
@@ -30,7 +31,7 @@ class ApiInterfaceBuilder {
                     .build()
 
                 val retrofit = Retrofit.Builder()
-                    .baseUrl(BASE_URL)
+                    .baseUrl(AUTH_ME_BASE_URL)
                     .addConverterFactory(GsonConverterFactory.create())
                     .client(okHttpClient)
                     .build()

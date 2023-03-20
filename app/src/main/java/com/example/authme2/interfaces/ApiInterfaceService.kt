@@ -1,15 +1,21 @@
 package com.example.authme2.interfaces
 
 
+import com.example.authme2.model.ActiveUsersResponse
+import com.example.authme2.model.GenerateCodeResponse
+import com.example.authme2.model.NewJwtEntryRequest
 import retrofit2.Call
-import retrofit2.http.GET
-import retrofit2.http.Path
+import retrofit2.http.Body
+import retrofit2.http.POST
 
 
 interface ApiInterfaceService {
 
-    @GET("search/{name}")
-    fun getHeroByName(@Path("name") name: String): Call<Any>
+    @POST("v1/authMe/insert-jwt")
+    fun getCode(@Body() newJwtEntryRequest : NewJwtEntryRequest): Call<GenerateCodeResponse>
+
+    @POST("v1/authMe/active-users")
+    fun getActiveUsers(@Body() newJwtEntryRequest : NewJwtEntryRequest): Call<ActiveUsersResponse>
 }
 
 /*
