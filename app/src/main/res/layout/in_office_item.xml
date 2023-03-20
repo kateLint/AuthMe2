@@ -7,30 +7,59 @@
     android:layout_height="wrap_content"
     tools:context=".InOffice">
 
-    <ImageView
+<!--    <ImageView
         android:id="@+id/user_picture"
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:layout_margin="8dp"
-        android:src="@drawable/user_placeholder"
+
+        android:background="@drawable/one"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintRight_toRightOf="parent" />
+        app:layout_constraintRight_toRightOf="parent" />-->
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/user_picture"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_centerHorizontal="true"
+        android:elevation="12dp"
+        android:innerRadius="0dp"
+        android:shape="ring"
+        android:thicknessRatio="1.9"
+        app:cardCornerRadius="40dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:background="#3b414f"
+            android:id="@+id/imageView1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/picture1"/>
+    </androidx.cardview.widget.CardView>
+
 
     <TextView
         android:id="@+id/user_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="28sp"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toLeftOf="@+id/user_picture"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="10dp"
-        />
+        android:layout_marginEnd="10dp"
+        tools:text="אלכסנדר" />
     <!-- Separator Line -->
     <View
         android:id="@+id/separator_line"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@color/black"
+        android:background="@color/color_525252"
         app:layout_constraintTop_toBottomOf="@+id/user_picture"
         />
     <!-- Flashing green dot -->
@@ -38,13 +67,11 @@
         android:id="@+id/green_dot"
         android:layout_width="16dp"
         android:layout_height="16dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginTop="22dp"
         android:layout_marginLeft="20dp"
         android:background="@drawable/green_dot_animation"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        />
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

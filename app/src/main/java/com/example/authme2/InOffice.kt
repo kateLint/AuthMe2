@@ -35,7 +35,7 @@ class InOffice : Fragment() {
 
         var view =  inflater.inflate(R.layout.activity_in_office, container, false)
         mRecycler = view.findViewById(R.id.recycler_new)
-        mRecycler.setLayoutManager(LinearLayoutManager(activity))
+        mRecycler.layoutManager = LinearLayoutManager(activity)
 
         var list = ArrayList<User>()
         list.add(User("Ori", 35, "elior@gmail.com"))
@@ -51,20 +51,34 @@ class InOffice : Fragment() {
         list.add(User("Ori", 35, "elior@gmail.com"))
         list.add(User("Matan", 35, "matan@gmail.com"))
 
-        mAdapter = InOfficeAdapter(list)
-        mRecycler.setAdapter(mAdapter)
+        val activeUsersList = addImagesToUsers(list)
+        mAdapter = InOfficeAdapter(activeUsersList)
+        mRecycler.adapter = mAdapter
 
         mViewModel.getActiveUsers()
         val observer = Observer<ActiveUsersResponse> { item ->
-            mAdapter = InOfficeAdapter(item.activeUsers)
-            mRecycler.setAdapter(mAdapter)
+
+            val activeUsersList = addImagesToUsers(item.activeUsers)
+            mAdapter = InOfficeAdapter(activeUsersList)
+            mRecycler.adapter = mAdapter
         }
         mViewModel.getActiveUsersLiveData()?.observe(requireActivity(), observer)
-
-
-
         return view
+    }
 
+    private fun addImagesToUsers(users: List<User>): List<User> {
+        val PACKAGE_NAME: String? = context?.packageName
 
+        val usersSize = users.size -1
+        var index = 1
+        for (i in 0..usersSize) {
+            if(index == 5){
+                index = 1
+            }
+            val res = resources.getIdentifier("picture" + index, "drawable", PACKAGE_NAME)
+            users[i].pictureName = res
+            index++
+        }
+        return users
     }
 }

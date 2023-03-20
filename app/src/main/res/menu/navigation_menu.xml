@@ -1,12 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/firstItem"
-        android:title="Generate Code" />
+        android:id="@+id/first_item"
+        android:orderInCategory="100"
+        android:title="הפקת סיסמה זמנית"
+        app:showAsAction="never" />
+
     <item
-        android:id="@+id/secondtItem"
-        android:title="Who is in office?" />
-    <item
-        android:id="@+id/thirdItem"
-        android:title="Logout" />
+        android:id="@+id/second_item"
+        android:orderInCategory="100"
+        android:title="מי במשרד"
+        app:showAsAction="never" />
+
 </menu>
+

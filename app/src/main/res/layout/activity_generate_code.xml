@@ -12,6 +12,7 @@
 
 
     <TextView
+        tools:text="234345"
         android:id="@+id/new_code"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
